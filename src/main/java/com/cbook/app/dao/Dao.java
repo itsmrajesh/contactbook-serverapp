@@ -16,6 +16,8 @@ public interface Dao {
 
 	List<Contact> searchContact(String name);
 
-	int clearContacts();
+	int deleteAllContacts();
+
+	Contact updateContact(Contact contact, String number);
 
 }

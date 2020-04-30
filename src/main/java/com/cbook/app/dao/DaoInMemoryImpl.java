@@ -55,10 +55,24 @@ public class DaoInMemoryImpl implements Dao {
 	}
 
 	@Override
-	public int clearContacts() {
+	public int deleteAllContacts() {
 		int size = contacts.size();
 		contacts.clear();
 		return size;
+	}
+
+	@Override
+	public Contact updateContact(Contact contact, String number) {
+		Contact contactObj = getContactByNumber(number);
+		if (contactObj != null) {
+			if (contact.getEmail() != null)
+				contactObj.setEmail(contact.getEmail());
+			if (contact.getName() != null)
+				contactObj.setName(contact.getName());
+			if (contact.getNumber() != null)
+				contactObj.setNumber(contact.getNumber());
+		}
+		return contactObj;
 	}
 
 }

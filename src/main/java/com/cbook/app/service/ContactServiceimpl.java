@@ -28,10 +28,7 @@ public class ContactServiceimpl implements ContactService {
 
 	@Override
 	public Contact getContactByNumber(String number) {
-		if (number.length() > 9) {
-			return dao.getContactByNumber(number);
-		}
-		return null;
+		return dao.getContactByNumber(number);
 	}
 
 	@Override
@@ -51,8 +48,13 @@ public class ContactServiceimpl implements ContactService {
 	}
 
 	@Override
-	public int clearContacts() {
-		return dao.clearContacts();
+	public int deleteAllContacts() {
+		return dao.deleteAllContacts();
+	}
+
+	@Override
+	public Contact updateContact(Contact contact, String number) {
+		return dao.updateContact(contact, number);
 	}
 
 }
